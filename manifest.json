@@ -1,0 +1,35 @@
+{
+  "name": "Simple Sina weibo™",
+  "version": "1.0",
+  "minimum_chrome_version": "12",
+
+  "description": "simple the sina weibo , hide the ads and other redundant infomation.",
+  "icons": { "16": "icons/icon16.png",
+             "48": "icons/icon48.png",
+            "128": "icons/icon128.png" },  
+
+  "browser_action": {
+     "default_icon": "icons/actions/1.png",
+     "default_title": "Simple Sina weio",
+     "default_popup": "popup.html"
+  },
+
+  "background_page": "background.html",
+
+  "content_scripts": [
+    {
+      "matches" : ["http://weibo.com/*"],
+      "js": [
+	"jquery.js",
+	"ssw.js"],
+      "run_at": "document_start"
+    }
+  ],
+
+  "permissions": [
+    "http://weibo.com/*",
+    "tabs"
+  ],
+
+  "homepage_url": "http://tsnrose.com/"
+}
