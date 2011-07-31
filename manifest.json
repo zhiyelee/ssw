@@ -10,8 +10,7 @@
 
   "browser_action": {
      "default_icon": "icons/actions/1.png",
-     "default_title": "Simple Sina weio",
-     "default_popup": "popup.html"
+     "default_title": "Simple Sina weio"
   },
 
   "background_page": "background.html",
