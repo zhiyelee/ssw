@@ -1,0 +1,105 @@
+﻿/*
+ * Filename:         ssw.css
+ *
+ * Web:              http://tsnrose.com/
+ * Source:           https://github.com/zhiyelee/ssw
+ * Author:           zhiyelee  http://tsnrose.com/
+ */
+
+.tsina_gnbarea .bg_gnbarea{
+opacity: 1;
+background: #2D2D2D;
+} 
+ 
+.MIB_bloga .MIB_blogb .MIB_blogbody {
+width: 100%;
+margin: 0;
+}
+.MIB_blogbody .MIB_mblogbgr .mainR{
+display:none;
+}
+.MIB_blogbody .mainL{
+width:100%;
+}
+/******输入区域***********/
+#indexMainL .MIB_mbloghead{
+left: 50%;
+margin-left: -400px;
+}
+
+/******推荐引导区***********/
+.tips_player,
+.randomYellow,
+.Y_clew{
+display:none;
+}
+/******分组筛选区***********/
+.nfTagB{
+width:100%;
+}
+.nfBox {
+width:100%;
+}
+.nfBox .right .searchbg {
+margin-right: 30px;
+}
+/**********正文********/
+.MIB_feed .head_pic {
+width: 8%;
+}
+.MIB_feed .MIB_feed_c {
+float: right;
+width: 90%;
+}
+.MIB_bloga .MIB_blogb .MIB_assign {
+width: 95%;
+background: #F6F6F6;
+border: 1px solid #E5E5E5;
+border-radius: 5px;
+}
+.MIB_bloga .MIB_blogb .MIB_assign .MIB_asarrow_l,
+.MIB_bloga .MIB_blogb  .MIB_assign_t,
+.MIB_bloga .MIB_blogb  .MIB_assign_b,
+.MIB_bloga .MIB_blogb  .MIB_assign_c {
+background: none;
+}
+.newMblog_ts1{
+background: #FFFDDD;
+border-radius: 3px;
+text-align: center;
+}
+/**sidebar***/
+.widgetIntroduce {
+display:none;
+}
+.mainR > .f_pro ,
+div[name = app10007]{
+display : none;
+}
+/******人气用户********/
+div[name = app6]{
+display : none;
+}
+/******我加入的群********/
+div[name = app10003]{
+display : none;
+}
+/*************/
+.cmn_nav {
+width: auto;
+}
+a.cmn_nav_tag{
+float:none;
+}
+.cmn_nav_con{
+width: 220px;
+border-radius:4px;
+}
+#medal_list_box li{
+float: left;
+padding: 10px 5px;
+}
+div[name=app4] #topic_region{
+border:1px solid #f0f0f0;
+border-radius:5px;
+}
