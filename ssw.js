@@ -1,4 +1,11 @@
-﻿$(function(){
+﻿/*
+ * Filename:         ssw.js
+ *
+ * Web:              http://tsnrose.com/
+ * Source:           https://github.com/zhiyelee/ssw
+ * Author:           zhiyelee  http://tsnrose.com/
+ */
+$(function(){
 $('a#nav_switch').click(function(){
     $('.cmn_nav_con').toggle();
 });
