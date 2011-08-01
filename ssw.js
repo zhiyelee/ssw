@@ -6,6 +6,7 @@
  * Author:           zhiyelee  http://tsnrose.com/
  */
 $(function(){
+
 $('a#nav_switch').click(function(){
     $('.cmn_nav_con').toggle();
 });
@@ -14,6 +15,12 @@ $('a#nav_switch').click(function(){
      rm_bottom_info();
      resize_main_area();
      move_sidebar();
+ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+    if (request.action == "sswModeOptionUpdated") {
+        // Handle options changes
+        localStorage.setItem('ssw_list_mode',request.mode);
+      } 
+    });     
 });
 var rm_bottom_ads = function(){
     $('#ads_bottom_1').css('display','none');
@@ -23,6 +30,14 @@ var rm_bottom_info = function(){
 };
 var resize_main_area = function(){
     inject_css();
+    var mode = 'normal';
+    mode = localStorage.getItem('ssw_list_mode');
+    mode = mode || 'normal';
+    if ( mode === 'normal' ){
+        $('.MIB_blogbody').css('padding-right',$('.cmn_nav').width() + 20);
+    }else{
+        $('a#nav_switch').trigger('click');
+    }
     /*
     $('.MIB_blogbody').css({'width' : '100%','margin' : '0'});
     var main = $('.MIB_blogbody').width();
@@ -50,4 +65,4 @@ var move_sidebar = function() {
     $('.right_nav').insertAfter('.cmn_nav_con .userinfo');
     $('div[name=app4],div[name=app20],div[name=app5]').insertAfter('.cmn_nav_con .right_nav');
     //$('.userinfo .user_atten ul li .num').css('font-size','14px');
-}
+};

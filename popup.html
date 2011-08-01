@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<!--
+ * Filename:         popup.html
+ *
+ * Web:              http://tsnrose.com/
+ * Source:           https://github.com/zhiyelee/ssw
+ * Author:           zhiyelee  http://tsnrose.com/
+ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+<style>
+body {
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif !important;
+    font-size: 14px;
+    line-height: 21px;
+    color: #333;
+}
+.header {
+    background-color: #2D2D2D;
+    color: white;
+    font-weight: bold;
+    padding: 5px 5px;
+    text-align: center;
+    border-radius: 5px;
+}
+.footer {
+    color: #ddd;
+    border-top : 2px solid #f0f0f0;
+    font-weight: bold;
+    padding: 5px 5px;
+    text-align: right;
+}
+.container {
+    margin: 10px 15px;
+}
+
+.author {
+    font-weight: normal;
+    font-size: 12px;
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+}
+
+.options {
+    width: 200px;
+    margin: 5px;
+}
+
+#notify {
+    margin: 5px;
+    height: 20px;
+    color: green;
+}
+</style>
+
+<script type="text/javascript" charset="utf-8">
+// Saves options to localStorage.
+function saveOptions() {
+  var mode = 'normal';
+  var radios = document.getElementsByName('ssw_list_mode');
+ 
+  for (var radio in radios) {
+    if (radios[radio].checked) {
+      mode = radios[radio].value;
+      break;
+    }
+  }
+  localStorage.setItem('ssw_list_mode', mode);
+  // Send update to all tabs
+  broadcast({action: 'sswModeOptionUpdated', mode: mode});
+  notifyUser("已保存,刷新页面后生效。");
+}
+
+// Restores select box state to saved value from localStorage
+function restoreOptions() {
+  var mode = localStorage.getItem('ssw_list_mode');
+  var radios = document.getElementsByName('ssw_list_mode');
+  for (var radio in radios) {
+    radios[radio].checked = mode == radios[radio].value;
+  }
+}
+
+function notifyUser(msg) {
+  // notifyUser save successfully
+  var status = document.getElementById('notify');
+  status.innerHTML = msg;
+  alert(msg);
+  setTimeout(function() {
+    status.innerHTML = '';
+  }, 1000);
+}
+// Broadcast message to all tabs
+function broadcast(request, callback) {
+  chrome.windows.getAll({populate: true}, function(windows) {
+    windows.forEach(function(w) {
+      w.tabs.forEach(function(tab) {
+        if (tab.url.match(/^http:\/\/weibo\.com\//))
+          chrome.tabs.sendRequest(tab.id, request, callback);
+      });
+    });
+  });
+}
+
+</script>
+
+</head>
+
+<body onload="restoreOptions()">
+
+    <div class="header">
+    Simple Sina weibo™
+    </div>
+    <div class="container">
+        <div class="options">
+           选择微博列表页面展现方式: <br />
+            <input id="ssw_list_mode_global" type="radio" name="ssw_list_mode" value="global" / >全屏模式<br />
+            <input id="ssw_list_mode_normal" type="radio" name="ssw_list_mode" value="normal" / >常规模式(默认)<br />
+            <button onclick="saveOptions()" style="margin-top: 5px">Save</button>
+        </div>
+
+        <pre id="notify">
+        </pre>
+    </div>
+    <div class='footer'> <span class="author">by <a href="http://tsnrose.com/" target=_blank>zhiyelee</a></span></div>
+</body>  
+</html>
+
+<!-- Local Variables: -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+<!-- vim:set ai et sts=4 sw=4 tw=0: -->

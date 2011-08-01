@@ -1,6 +1,6 @@
 {
   "name": "Simple Sina weibo™",
-  "version": "1.0",
+  "version": "1.10",
   "minimum_chrome_version": "2",
 
   "description": "simple the sina weibo , hide the ads and other redundant infomation.",
@@ -10,7 +10,8 @@
 
   "browser_action": {
      "default_icon": "icons/actions/1.png",
-     "default_title": "Simple Sina weio"
+     "default_title": "Simple Sina weio" ,
+     "default_popup": "popup.html"
   },
 
   "background_page": "background.html",

@@ -18,8 +18,8 @@ background: #2D2D2D;
 } 
  
 .MIB_bloga .MIB_blogb .MIB_blogbody {
-width: 100%;
-margin: 0;
+width: auto;
+padding: 0 40px;
 }
 /**deal with background-imgage**/
 .MIB_blogbody .MIB_mblogbgr{
@@ -111,6 +111,7 @@ float:none;
 .cmn_nav_con{
 width: 220px;
 border-radius:4px;
+background: #fff;
 }
 #medal_list_box li{
 float: left;
